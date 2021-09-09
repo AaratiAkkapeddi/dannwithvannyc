@@ -2,6 +2,34 @@
 #root{
   margin:45px;
 }
+@-webkit-keyframes walk {
+  0%   { right:-20vw;transform:scaleX(-1); }
+   49% {transform:scaleX(-1);}
+  50%   { right:100vw;transform:scaleX(1); }
+  99% {transform:scaleX(1);}
+  100% { right:-20vw;transform:scaleX(-1); }
+}
+@-moz-keyframes walk {
+  0%   { right:-20vw;transform:scaleX(-1); }
+   49% {transform:scaleX(-1);}
+  50%   { right:100vw;transform:scaleX(1); }
+  99% {transform:scaleX(1);}
+  100% { right:-20vw;transform:scaleX(-1); }
+}
+@-o-keyframes walk {
+    0%   { right:-20vw;transform:scaleX(-1); }
+   49% {transform:scaleX(-1);}
+  50%   { right:100vw;transform:scaleX(1); }
+  99% {transform:scaleX(1);}
+  100% { right:-20vw;transform:scaleX(-1); }
+}
+@keyframes walk {
+  0%   { right:-20vw;transform:scaleX(-1); }
+   49% {transform:scaleX(-1);}
+  50%   { right:100vw;transform:scaleX(1); }
+  99% {transform:scaleX(1);}
+  100% { right:-20vw;transform:scaleX(-1); }
+}
 .side-nav svg{
   width: clamp(40px,1vw,75px);
   top: 5px;
@@ -11,9 +39,18 @@
   display: inline-block;
   margin: 0 5px;
   vertical-align: top;
+  z-index: 999;
   font-size:clamp(30px,1vw,45px);
 }
-.side-nav li:first-child{
+.side-nav li:first-child img{
+  width: 70px;
+  pointer-events: none;
+  top:45px;
+  position: absolute;
+  animation: walk 30s linear 0s infinite;
+  margin-right: 100px;
+}
+.side-nav li:nth-child(2){
   margin-right:45px;
 }
 .side-nav{
@@ -99,8 +136,13 @@ a:link, a:focus, a:visited{
     top:1px;
     width: clamp(20px,1vw,75px);
   }
-   .side-nav li:first-child{
+   .side-nav li:nth-child(2){
     margin-right:15px;
+    left:-10px;
+    position: relative;
+   }
+   .side-nav li:first-child img{
+    top:13px;
    }
   .side-nav li{
 /*    display: block;*/
